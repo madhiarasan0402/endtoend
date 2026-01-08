@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #ffffff;
+    --text-main: #000000;
+    --text-muted: #475569;
+    --border-main: #94a3b8;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --header-bg: #ffffff;
+  }
+
+  .dark {
+    --bg-main: #020617;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-main: #1e293b;
+    --card-bg: #0f172a;
+    --input-bg: #1e293b;
+    --header-bg: #1e293b;
+  }
+
+  body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    @apply font-sans antialiased;
+  }
+
+  /* Force all standard elements to use the dynamic text color */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  label,
+  b,
+  strong,
+  i {
+    color: var(--text-main) !important;
+  }
+
+  /* Specific handling for form elements to ensure they follow the theme */
+  input,
+  select,
+  textarea,
+  option {
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-main) !important;
+  }
+}
+
+@layer components {
+  .enterprise-card {
+    background-color: var(--card-bg) !important;
+    border: 1.5px solid var(--border-main) !important;
+    @apply rounded-3xl overflow-hidden shadow-sm;
+  }
+
+  .collapsible-header {
+    background-color: var(--header-bg) !important;
+    color: var(--text-main) !important;
+  }
+}
+
+@layer utilities {
+
+  /* High-stakes override: ensure no grey utility backgrounds seep through in light mode */
+  html:not(.dark) .bg-slate-50,
+  html:not(.dark) .bg-slate-100,
+  html:not(.dark) .bg-slate-200,
+  html:not(.dark) .bg-slate-300,
+  html:not(.dark) .bg-slate-400,
+  html:not(.dark) .bg-slate-500,
+  html:not(.dark) .bg-slate-900,
+  html:not(.dark) .bg-slate-950,
+  html:not(.dark) .bg-indigo-50,
+  html:not(.dark) .bg-blue-50,
+  html:not(.dark) [class*="bg-slate-"],
+  html:not(.dark) [class*="bg-indigo-"] {
+    background-color: #ffffff !important;
+  }
+
+  /* Ensure text is always visible */
+  .text-dynamic {
+    color: var(--text-main) !important;
+  }
+
+  /* Exceptions for primary action buttons */
+  .bg-indigo-600,
+  .bg-indigo-700,
+  .bg-emerald-600,
+  .bg-rose-600 {
+    color: #ffffff !important;
+  }
+
+  .bg-black {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  .force-black-btn,
+  .force-black-btn:hover,
+  .force-black-btn:active,
+  .force-black-btn:focus {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+  }
+
+  .force-black-btn span,
+  .force-black-btn svg {
+    color: #ffffff !important;
+  }
+}
+
+* {
+  transition: background-color 0.2s, border-color 0.2s;
+}

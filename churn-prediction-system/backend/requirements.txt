@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+xgboost
+imbalanced-learn
+mysql-connector-python
+sqlalchemy
+python-multipart
+joblib
