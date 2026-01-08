@@ -9,3 +9,8 @@ mysql-connector-python
 sqlalchemy
 python-multipart
 joblib
+shap
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+fpdf
